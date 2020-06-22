@@ -1,0 +1,41 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title th:text="${review.title}">A review</title>
+    <link rel="stylesheet" type="text/css" href="/css/homestyle.css">
+    <link rel="stylesheet" type="text/css" href="/css/style.css">
+</head>
+
+<body>
+
+<nav>
+    <a href="#" onclick="history.go(-1)">Category</a>
+</nav>
+
+<div class="container">
+
+    <header>
+        <h1> Star Wars Reviews </h1>
+    </header>
+
+    <main>
+        <h2 th:text="${review.title}"></h2>
+        <img th:src="${review.imageUrl}" alt="image" height="300">
+        <h2>Skywalker Saga</h2>
+        <div class="content">
+            <h3>Actors:</h3>
+            <li th:each="actor: ${review.actors}" th:text="${actor.firstName} + ${actor.lastName}">Actors</li>
+            <p th:text="${review.reviewContent}"></p>
+        </div>
+
+    </main>
+</div>
+
+<footer>
+    <small>&copy Team Two 2020</small>
+</footer>
+
+</body>
+
+</html>

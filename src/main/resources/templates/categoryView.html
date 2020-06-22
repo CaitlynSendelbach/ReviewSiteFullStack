@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="ie=edge" http-equiv="X-UA-Compatible">
+    <link rel="stylesheet" type="text/css" href="/css/homestyle.css">
+
+
+    <title>SkyWalker Saga</title>
+</head>
+
+<body>
+
+<nav>
+    <a href="/categories">Categories</a>
+</nav>
+
+<header class="header">
+    <h1>Welcome to StarWars Reviews</h1>
+    <h2 th:text="${category.location}">Location</h2>
+</header>
+
+<div class="container">
+    <h2>Here is a list of the movies in this trilogy:</h2>
+
+            <h3 th:each="review:${category.reviews}">
+                <a th:href="@{'/reviews/'+ ${review.id}}"
+                   th:text="${review.title}"></a>
+            </h3>
+
+
+
+
+</div>
+</body>
+
+</html>
